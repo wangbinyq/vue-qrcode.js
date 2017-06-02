@@ -2,7 +2,7 @@
   "name": "vue-qrcode.js",
   "description": "qrcode.js binding of vue 2",
   "main": "./dist/vue-qrcode.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "wangbinyq@gmail.com",
   "private": true,
   "scripts": {
