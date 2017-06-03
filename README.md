@@ -1,18 +1,33 @@
-# vue-qrcode
+## vue-qrcode.js
 
 > qrcode.js binding of vue 2
 
-## Build Setup
+### Install
 
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
+With [Yarn](https://yarnpkg.com):
+```bash
+yarn add vue-qrcode.js
 ```
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+With npm:
+```bash
+npm install vue-qrcode.js --save
+```
+
+### Usage
+[example](https://wangbinyq.github.io/vue-qrcode.js/test/)
+
+```html
+    <qrcode class="qrcode"
+      :text="text"
+      :size="size"
+      :colorLight="colorLight"
+      :colorDark="colorDark"
+      :logo="'https://avatars0.githubusercontent.com/u/1384521?v=3&s=80'"
+      :logoSize="40"
+      >
+    </qrcode>
+```
+
+### License
+MIT

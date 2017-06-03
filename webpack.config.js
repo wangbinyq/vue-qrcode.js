@@ -2,11 +2,11 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  entry: './src/main.js',
+  entry: './src/qrcode.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    filename: 'build.js'
+    filename: 'vue-qrcode.js'
   },
   module: {
     rules: [
@@ -34,6 +34,7 @@ module.exports = {
     ]
   },
   resolve: {
+    extensions: ['.js', '.json', '.vue'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js'
     }
@@ -45,7 +46,7 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: '#eval-source-map'
+  devtool: '#inline-source-map'
 }
 
 if (process.env.NODE_ENV === 'production') {

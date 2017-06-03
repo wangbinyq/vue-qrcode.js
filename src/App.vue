@@ -1,47 +1,87 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <h1></h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://gitter.im/vuejs/vue" target="_blank">Gitter Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
+    <h1> Vue Qrcode Demo </h1>
+    <ul class="lists">
+      <li>
+        <label>size(px)</label>
+        <input type="number" v-model.number="size">
+      </li>
+      <li>
+        <label>bg-color</label>
+        <input type="color" v-model="colorLight">
+      </li>
+      <li>
+        <label>fg-color</label>
+        <input type="color" v-model="colorDark">
+      </li>
+      <li>
+        <label>val</label>
+        <textarea rows="6" cols="80" v-model="text"></textarea>
+      </li>
     </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+    <qrcode class="qrcode"
+      :text="text"
+      :size="size"
+      :colorLight="colorLight"
+      :colorDark="colorDark"
+      :logo="'https://avatars0.githubusercontent.com/u/1384521?v=3&s=80'"
+      :logoSize="40"
+      >
+
+    </qrcode>
   </div>
 </template>
 
 <script>
+import qrcode from './qrcode'
+
 export default {
   name: 'app',
-  data () {
+  data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      size: 128,
+      colorLight: '#ffffff',
+      colorDark: '#000000',
+      text: 'https://github.com/'
     }
+  },
+  components: {
+    qrcode
   }
 }
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  width: 600px;
+  margin: 0 auto;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 
-h1, h2 {
-  font-weight: normal;
+header {
+  font-size: 20px;
+}
+
+.lists{
+  padding: 0;
+  text-align: left;
+  list-style: none;
+  width: 300px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.lists li{
+  margin-bottom: 8px;
+}
+
+.lists label{
+  display: block;
+  margin-bottom: 5px;
+}
+
+.lists textarea{
+  width: 100%;
 }
 
 ul {
@@ -56,5 +96,9 @@ li {
 
 a {
   color: #42b983;
+}
+
+.qrcode {
+  margin: 0 auto;
 }
 </style>
